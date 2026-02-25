@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>metronome-2</title>
+  </head>
+  <body>
+    <div id="metronome">
+      <div class="bpm-display"></div>
+      <div class="tempo-title"></div>
+      <div class="tempo-wrapper">
+        <button class="tempo-decrease" id="tempoDown">-</button>
+        <div class="tempo">
+          <input type="range" min="30" max="240" value="100" id="myRange">
+          <span id="rangeDisplay" type="text"></span>
+        </div>
+        <button class="tempo-increase" id="tempoUp">+</button>
+      </div>      
+      <div class="beat-display"></div>
+      <div class="beat-display"></div>
+      <button class="play-button" id="playButton"></button>
+      <button class="stop-button" id="stopButton"></button>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
