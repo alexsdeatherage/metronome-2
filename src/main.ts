@@ -1,4 +1,5 @@
 import * as Tone from "tone"
+import TapTempo from "./helpers/tapTempo";
 
 const range = document.getElementById("myRange") as HTMLInputElement;
 const display = document.getElementById("rangeDisplay") as HTMLInputElement;
@@ -58,9 +59,10 @@ gain.gain.value = 0.9;
 metroSynth.chain(gain);
 
 let beat = 0
+let accent = document.getElementById("accentButton") as HTMLInputElement;
 Tone.getTransport().scheduleRepeat((time) => {
   console.log("tick");
-  if (beat % 4 === 0) {
+  if ((beat % 4 === 0) && (accent.checked == true)) {
     metroSynth.triggerAttackRelease(480, 0.1, time);
   } else {
     metroSynth.triggerAttackRelease(440, 0.1, time);
@@ -79,9 +81,23 @@ stopBtn.addEventListener('click', () => {
     beat = 0
 })
 
+const tapTempoBtn = document.getElementById("tapTempoButton") as HTMLButtonElement;
+const tapTempo = new TapTempo();
+
+tapTempo.addEventListener('bpm', (ev) => {
+  const bpm = (ev as CustomEvent).detail.bpm as number;
+  console.log('BPM from taps:', bpm);
+})
+
+tapTempoBtn.addEventListener('click', () => {
+  const bpm = tapTempo.tap();
+  Tone.getTransport().bpm.value = Number(bpm);
+  display.textContent = String(bpm)
+  range.value = String(bpm)
+
+})
+
 
 
 Tone.getTransport().bpm.value = 100;
 Tone.getTransport().timeSignature = 4;
-
-
