@@ -11,17 +11,19 @@
       <div class="bpm-display"></div>
       <div class="tempo-title"></div>
       <div class="tempo-wrapper">
-        <button class="tempo-decrease" id="tempoDown">-</button>
+        <button class="tempo-decrease" id="tempoDown">-1</button>
+        <button class="tempo-decrease" id="tempoDown5">-5</button>
         <div class="tempo">
           <input type="range" min="30" max="240" value="100" id="myRange">
           <span id="rangeDisplay" type="text"></span>
         </div>
-        <button class="tempo-increase" id="tempoUp">+</button>
+        <button class="tempo-increase" id="tempoUp">+1</button>
+        <button class="tempo-increase" id="tempoUp5">+5</button>
       </div>      
       <div class="beat-display"></div>
       <div class="beat-display"></div>
-      <button class="play-button" id="playButton"></button>
-      <button class="stop-button" id="stopButton"></button>
+      <button class="play-button" id="playButton" >Play</button>
+      <button class="stop-button" id="stopButton">Stop</button>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

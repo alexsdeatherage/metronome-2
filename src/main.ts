@@ -8,26 +8,43 @@ display.textContent = range.value;
 range.addEventListener("input", () => {
     display.textContent = range.value;    
     let tempo = range.value;
-    Tone.Transport.bpm.value = Number(tempo);
+    Tone.getTransport().bpm.value = Number(tempo);
 })
 
 
 const tempoUp = document.getElementById("tempoUp") as HTMLButtonElement;
+const tempoUp5 = document.getElementById("tempoUp5") as HTMLButtonElement;
 const tempoDown = document.getElementById("tempoDown") as HTMLButtonElement;
+const tempoDown5 = document.getElementById("tempoDown5") as HTMLButtonElement;
 
 tempoUp.addEventListener('click', () => {
     range.valueAsNumber += 1
     display.textContent = range.value;    
     let tempo = range.value;
-    Tone.Transport.bpm.value = Number(tempo);
+    Tone.getTransport().bpm.value = Number(tempo);
+});
+
+tempoUp5.addEventListener('click', () => {
+    range.valueAsNumber += 5
+    display.textContent = range.value;    
+    let tempo = range.value;
+    Tone.getTransport().bpm.value = Number(tempo);
 });
 
 tempoDown.addEventListener('click', () => {
     range.valueAsNumber -= 1
     display.textContent = range.value;
     let tempo = range.value;
-    Tone.Transport.bpm.value = Number(tempo);
+    Tone.getTransport().bpm.value = Number(tempo);
 });
+
+tempoDown5.addEventListener('click', () => {
+    range.valueAsNumber -= 5
+    display.textContent = range.value;
+    let tempo = range.value;
+    Tone.getTransport().bpm.value = Number(tempo);
+});
+
 
 const playBtn = document.getElementById("playButton") as HTMLButtonElement;
 const stopBtn = document.getElementById("stopButton") as HTMLButtonElement;
@@ -40,21 +57,31 @@ let metroSynth = new Tone.Synth({
 gain.gain.value = 0.9;
 metroSynth.chain(gain);
 
-Tone.Transport.scheduleRepeat((time) => {
+let beat = 0
+Tone.getTransport().scheduleRepeat((time) => {
   console.log("tick");
-  metroSynth.triggerAttackRelease(440, 0.1, time);
+  if (beat % 4 === 0) {
+    metroSynth.triggerAttackRelease(480, 0.1, time);
+  } else {
+    metroSynth.triggerAttackRelease(440, 0.1, time);
+  }
+  beat++;
 }, "4n");
 
 
 playBtn.addEventListener('click', () =>{
     Tone.start();
-    Tone.Transport.start();
+    Tone.getTransport().start();
 });
 
 stopBtn.addEventListener('click', () => {
-    Tone.Transport.stop();
+    Tone.getTransport().stop();
+    beat = 0
 })
 
 
 
-Tone.Transport.bpm.value = 100;
+Tone.getTransport().bpm.value = 100;
+Tone.getTransport().timeSignature = 4;
+
+
