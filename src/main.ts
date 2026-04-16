@@ -1,5 +1,6 @@
 import * as Tone from "tone"
 import TapTempo from "./helpers/tapTempo";
+import './style.css';
 
 const range = document.getElementById("myRange") as HTMLInputElement;
 const display = document.getElementById("rangeDisplay") as HTMLInputElement;
