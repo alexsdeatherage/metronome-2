@@ -11,25 +11,25 @@
       <div class="bpm-display"></div>
       <div class="tempo-title"></div>
       <div class="tempo-wrapper">
-        <button class="tempo-decrease" id="tempoDown">-1</button>
-        <button class="tempo-decrease" id="tempoDown5">-5</button>
+        <button id="tempoDown" class="btn btn-outline btn-sm">-1</button>
+        <button id="tempoDown5" class="btn btn-outline btn-sm ml-1">-5</button>
         <div class="tempo">
           <input type="range" min="30" max="240" value="100" id="myRange">
           <span id="rangeDisplay" type="text"></span>
         </div>
-        <button class="tempo-increase" id="tempoUp">+1</button>
-        <button class="tempo-increase" id="tempoUp5">+5</button>
+        <button id="tempoUp" class="btn btn-outline btn-sm">+1</button>
+        <button id="tempoUp5" class="btn btn-outline btn-sm ml-1">+5</button>
       </div>      
       <div class="beat-display"></div>
       <div class="beat-display"></div>
-      <button class="btn btn-primary" id="playButton" >Play</button>
-      <button class="btn btn-secondary" id="stopButton">Stop</button>
+      <button id="playButton" class="btn btn-primary btn-lg">Play</button>
+      <button id="stopButton" class="btn btn-error btn-lg ml-2">Stop</button>
       <div>     
         <input type="checkbox" class="accent-button" id="accentButton" checked></input>
         <label for="accent">Accent</label>
       </div>
 
-      <button class="tap-tempo-button" id="tapTempoButton">Tap Tempo</button>
+      <button id="tapTempoButton" class="btn btn-secondary">Tap Tempo</button>
 
     </div>
     <script type="module" src="/src/main.ts"></script>
