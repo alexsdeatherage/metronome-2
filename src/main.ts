@@ -50,6 +50,7 @@ tempoDown5.addEventListener('click', () => {
 
 const playBtn = document.getElementById("playButton") as HTMLButtonElement;
 const stopBtn = document.getElementById("stopButton") as HTMLButtonElement;
+const beatDots = Array.from(document.querySelectorAll(".beat-dot")) as HTMLElement[];
 
 let gain = new Tone.Gain().toDestination();
 let metroSynth = new Tone.Synth({
@@ -61,12 +62,34 @@ metroSynth.chain(gain);
 
 let beat = 0
 let accent = document.getElementById("accentButton") as HTMLInputElement;
-Tone.getTransport().scheduleRepeat((time) => {
+
+
+function highlightBeat(i: number) {
+  const el = beatDots[i];
+  if (!beat) return;
+  el.classList.add('active')
+  if (accent.checked && i === 0) {
+    el.classList.add("accent");
+  }
+  setTimeout(() => el.classList.remove('active', 'accent'), 120)
+}
+
+const repeat = (time: number) => {
+  const i = beat % beatDots.length;
+  Tone.getDraw().schedule(() => highlightBeat(i), time);
+  beat++;
+}
+
+// Tone.getTransport().scheduleRepeat(repeat, '4n')
+
+
+
+Tone.getTransport().scheduleRepeat((repeat) => {
   console.log("tick");
   if ((beat % 4 === 0) && (accent.checked == true)) {
-    metroSynth.triggerAttackRelease(480, 0.1, time);
+    metroSynth.triggerAttackRelease(480, 0.1, repeat);
   } else {
-    metroSynth.triggerAttackRelease(440, 0.1, time);
+    metroSynth.triggerAttackRelease(440, 0.1, repeat);
   }
   beat++;
 }, "4n");
