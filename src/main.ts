@@ -64,21 +64,21 @@ let beat = 0
 let accent = document.getElementById("accentButton") as HTMLInputElement;
 
 
-function highlightBeat(i: number) {
-  const el = beatDots[i];
-  if (!beat) return;
-  el.classList.add('active')
-  if (accent.checked && i === 0) {
-    el.classList.add("accent");
-  }
-  setTimeout(() => el.classList.remove('active', 'accent'), 120)
-}
+// function highlightBeat(i: number) {
+//   const el = beatDots[i];
+//   if (!beat) return;
+//   el.classList.add('active')
+//   if (accent.checked && i === 0) {
+//     el.classList.add("accent");
+//   }
+//   setTimeout(() => el.classList.remove('active', 'accent'), 120)
+// }
 
-const repeat = (time: number) => {
-  const i = beat % beatDots.length;
-  Tone.getDraw().schedule(() => highlightBeat(i), time);
-  beat++;
-}
+// const repeat = (time: number) => {
+//   const i = beat % beatDots.length;
+//   Tone.getDraw().schedule(() => highlightBeat(i), time);
+//   beat++;
+// }
 
 // Tone.getTransport().scheduleRepeat(repeat, '4n')
 
