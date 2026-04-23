@@ -9,7 +9,8 @@
   <body>
 
     <!-- Need to add in a few more features and styling before calling this project done-->
-    <div id="metronome">
+    <div class="app-root">
+      <div id="metronome" class="app-card">
       <div class="beats flex gap-3">
         <div class="beat-dot w-6 h-6 rounded-full bg-gray-400"></div>
         <div class="beat-dot w-6 h-6 rounded-full bg-gray-400"></div>
@@ -17,27 +18,45 @@
         <div class="beat-dot w-6 h-6 rounded-full bg-gray-400"></div>
       </div>
 
-      <div class="tempo-wrapper">
-        <button id="tempoDown" class="btn btn-outline btn-sm">-1</button>
-        <button id="tempoDown5" class="btn btn-outline btn-sm ml-1">-5</button>
-        <div class="tempo">
-          <input type="range" min="30" max="240" value="100" id="myRange">
-          <span id="rangeDisplay" type="text"></span>
+      <div class="mt-3 flex items-center gap-2">
+        <button id="beatsDown" class="btn btn-outline btn-sm" aria-label="Beats decrease">-</button>
+        <div>Beats: <span id="beatsCount">4</span></div>
+        <button id="beatsUp" class="btn btn-outline btn-sm" aria-label="Beats increase">+</button>
+      </div>
+
+      <div class="mt-3 subdiv-controls">
+        <div class="text-sm mb-1">Subdivision:</div>
+        <div class="flex gap-2 flex-wrap">
+          <button id="subQuarter" class="btn btn-ghost btn-sm">Quarter</button>
+          <button id="subEighth" class="btn btn-ghost btn-sm">Eighth</button>
+          <button id="subTriplet" class="btn btn-ghost btn-sm">Triplet</button>
+          <button id="subSixteenth" class="btn btn-ghost btn-sm">Sixteenth</button>
+          <button id="subDotted" class="btn btn-ghost btn-sm">Dotted 8th+16th</button>
         </div>
-        <button id="tempoUp" class="btn btn-outline btn-sm">+1</button>
-        <button id="tempoUp5" class="btn btn-outline btn-sm ml-1">+5</button>
+      </div>
+
+      <div class="tempo-wrapper">
+        <button id="tempoDown" class="btn btn-outline btn-sm" aria-label="Tempo down 1">-1</button>
+        <button id="tempoDown5" class="btn btn-outline btn-sm ml-1" aria-label="Tempo down 5">-5</button>
+        <div class="tempo">
+          <input type="range" min="30" max="240" value="100" id="myRange" aria-label="Tempo slider">
+          <span id="rangeDisplay" role="status" aria-live="polite"></span>
+        </div>
+        <button id="tempoUp" class="btn btn-outline btn-sm" aria-label="Tempo up 1">+1</button>
+        <button id="tempoUp5" class="btn btn-outline btn-sm ml-1" aria-label="Tempo up 5">+5</button>
       </div>      
       <div class="beat-display"></div>
       <div class="beat-display"></div>
       <button id="playButton" class="btn btn-primary btn-lg">Play</button>
       <button id="stopButton" class="btn btn-error btn-lg ml-2">Stop</button>
-      <div>     
-        <input type="checkbox" class="accent-button" id="accentButton" checked></input>
-        <label for="accent">Accent</label>
+      <div>
+        <input type="checkbox" class="accent-button" id="accentButton" checked aria-label="Accent toggle">
+        <label for="accentButton">Accent</label>
       </div>
 
       <button id="tapTempoButton" class="btn btn-secondary">Tap Tempo</button>
 
+      </div>
     </div>
     <script type="module" src="/src/main.ts"></script>
   </body>

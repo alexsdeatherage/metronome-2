@@ -5,3 +5,24 @@
 .beat-dot { transition: transform .08s ease, background-color .08s, box-shadow .08s; }
 .beat-dot.active { transform: scale(1.6); background-color: #ef4444; box-shadow: 0 6px 18px rgba(239,68,68,.35); }
 .beat-dot.accent { background-color: #f97316; box-shadow: 0 8px 22px rgba(249,115,22,.4); transform: scale(1.8); }
+
+/* Touch and responsive tweaks */
+.btn { touch-action: manipulation; }
+.tempo-wrapper { display: flex; align-items: center; gap: 0.5rem; }
+.tempo { display: flex; align-items: center; gap: 0.5rem; }
+
+@media (max-width: 640px) {
+	.tempo-wrapper { flex-direction: column; align-items: stretch; }
+	.tempo { width: 100%; }
+	.beat-dot { width: 14px; height: 14px; }
+	.btn { padding: 0.75rem 1rem; font-size: 1rem; }
+}
+
+/* Centering app container */
+.app-root { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%); }
+.app-card { width: 100%; max-width: 520px; background: white; padding: 1.25rem; border-radius: 0.5rem; box-shadow: 0 8px 30px rgba(2,6,23,0.08); }
+
+@media (prefers-color-scheme: dark) {
+	.app-root { background: #0f172a; }
+	.app-card { background: #0b1220; color: #e6eef8; }
+}
