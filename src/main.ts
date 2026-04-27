@@ -72,7 +72,6 @@ accentSynth.connect(accentGain);
 beatSynth.connect(beatGain);
 subSynth.connect(subGain);
 
-let beat = 0
 const accent = document.getElementById("accentButton") as HTMLInputElement | null;
 
 function highlightBeat(i: number) {
