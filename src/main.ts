@@ -89,7 +89,6 @@ function highlightBeat(i: number) {
 
 // beat count and subdivisions
 let beatCount = 4;
-const beatsContainer = document.querySelector('.beats') as HTMLElement | null;
 const beatsCountEl = document.getElementById('beatsCount') as HTMLElement | null;
 
 function renderBeatDots() {
@@ -187,7 +186,6 @@ if (playBtn) playBtn.addEventListener('click', async () =>{
 
 if (stopBtn) stopBtn.addEventListener('click', () => {
   Tone.getTransport().stop();
-  beat = 0;
 });
 
 const tapTempoBtn = document.getElementById("tapTempoButton") as HTMLButtonElement | null;
