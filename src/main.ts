@@ -226,9 +226,9 @@ window.addEventListener('keydown', async (ev) => {
     range!.valueAsNumber += 1; safeSetBpm(Number(range!.value));
   } else if (ev.code === 'ArrowDown') {
     range!.valueAsNumber -= 1; safeSetBpm(Number(range!.value));
-  } else if (ev.code === 'PageUp') {
+  } else if (ev.code === 'ArrowRight') {
     range!.valueAsNumber += 5; safeSetBpm(Number(range!.value));
-  } else if (ev.code === 'PageDown') {
+  } else if (ev.code === 'ArrowLeft') {
     range!.valueAsNumber -= 5; safeSetBpm(Number(range!.value));
   }
 });
