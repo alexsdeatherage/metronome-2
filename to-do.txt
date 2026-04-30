@@ -1,0 +1,4 @@
+1. Find a host for the website deployment
+2. Make sure that it renders correctly on mobile devices, like a phone or tablet
+3. Adjust theming and colors for visibility
+4. Test the website on different browsers to ensure compatibility
