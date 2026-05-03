@@ -1,4 +1,9 @@
-1. Find a host for the website deployment
-2. Make sure that it renders correctly on mobile devices, like a phone or tablet
-3. Adjust theming and colors for visibility
-4. Test the website on different browsers to ensure compatibility
+1. Find a host for the website deployment (e.g., Netlify, Vercel, GitHub Pages. Probably Github Pages since it's free and easy to use with GitHub repositories)
+2. Make sure that it renders correctly on mobile devices, like a phone or tablet.
+3. Adjust theming and colors for visibility. Like having a light/dark mode toggle.
+4. Test the website on different browsers to ensure compatibility, like Chrome and Firefox.
+5. Figure out the sizing issue for svg images. 
+6. Add a favicon to the website for better branding and recognition.
+7. Adjust sounds so that there are a few different options for users to choose from, and make sure they are not too loud or annoying.
+8. Add in some keyboard shortcuts, and display them to the user in some way. 
+9. 
