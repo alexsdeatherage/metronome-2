@@ -26,3 +26,30 @@
 	.app-root { background: #0f172a; }
 	.app-card { background: #0b1220; color: #e6eef8; }
 }
+
+.subdiv-btn {
+  display: inline-grid;
+  grid-template-rows: auto auto;
+  place-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: visible;
+}
+
+/* Keep the SVG sized and spaced from the label */
+.subdiv-btn img {
+  width: auto;
+  height: auto;
+  display: block;
+  margin-bottom: 0; /* explicit: grid gap handles spacing */
+}
+
+/* Slightly larger label so it's clearly inside the button */
+.subdiv-btn .label {
+  font-size: 0.65rem;
+  line-height: 1;
+  white-space: nowrap;
+}
